@@ -1,3 +1,9 @@
+<svelte:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/w3.css">
+</svelte:head>
+
+
 <script lang="ts">
     // Svelte 5 runes
     import { fly, fade } from 'svelte/transition';
@@ -13,8 +19,12 @@
         sidebarOpen = false;
     }
 
+    function onPage(path: string) {
+        return window.location.pathname === path;
+    }
+
     function handleNav(path: string) {
-        if (window.location.pathname === path) {
+        if (onPage(path)) {
             closeSidebar();
         } else {
             window.location.href = path;
@@ -22,10 +32,6 @@
     }
 </script>
 
-<svelte:head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/w3.css">
-</svelte:head>
 
 <!-- Sidebar + overlay -->
 {#if sidebarOpen}
@@ -47,9 +53,9 @@
         out:fly={{ x: -250, duration: 200, easing: cubicIn }}
     >
         <button class="w3-bar-item w3-large" onclick={closeSidebar} > Close &times; </button>
-        <button class="w3-bar-item w3-button" onclick={() => handleNav('/')}> Home </button>
-        <button class="w3-bar-item w3-button" onclick={() => handleNav('/about')}> About </button>
-        <button class="w3-bar-item w3-button" onclick={() => handleNav('/projects')}> Projects </button>
+        <button class="w3-bar-item w3-button {onPage('/') ? 'active' : 'inactive'}" onclick={() => handleNav('/')}> Home </button>
+        <button class="w3-bar-item w3-button {onPage('/about') ? 'active' : 'inactive'}" onclick={() => handleNav('/about')}> About </button>
+        <button class="w3-bar-item w3-button {onPage('/projects') ? 'active' : 'inactive'}" onclick={() => handleNav('/projects')}> Projects </button>
     </nav>
 {/if}
 
@@ -79,4 +85,52 @@
     .sidebar {
         z-index: 50;
     }
+
+    /*
+    .menu-button {
+        border:none;
+        display:inline-block;
+        padding:8px 16px;
+        vertical-align:middle;
+        overflow:hidden;
+        text-decoration:none;
+        color:inherit;
+        background-color:inherit;
+        cursor:pointer;
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+        -khtml-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select:none;
+        width:100%;
+        text-align:left;
+        white-space:normal;
+    }
+
+    .menu-button:disabled {
+        cursor:not-allowed;
+        opacity:0.3;
+    }
+    .menu-button:first-child {
+        background-color:#ccc;
+        color:#000;
+    }
+
+    .menu-button:hover {
+        color:#000!important;
+        background-color:#ccc!important;
+    }
+    */
+
+    .active {
+        color: #009688!important;
+    }
+
+    /*
+    .active:hover {
+        color:#fff!important;
+        background-color: #009688!important;
+    }
+    */
 </style>
