@@ -3,6 +3,8 @@ npm run build
 sudo docker build -t opossalite/nanacatlan:latest .
 sudo docker push opossalite/nanacatlan:latest
 
-# on server
+# on server (in correct directory)
 sudo docker pull opossalite/nanacatlan:latest
+sudo docker down
+sudo docker up -d
 
