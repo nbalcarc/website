@@ -1,8 +1,8 @@
+# build docker image (repeat docker cmds for latest and actual version)
+npm run build
 sudo docker build -t opossalite/nanacatlan:latest .
 sudo docker push opossalite/nanacatlan:latest
 
-#note: already deprecated in favor of a docker compose
+# on server
 sudo docker pull opossalite/nanacatlan:latest
-sudo docker rm nanacatlan
-sudo docker run --name nanacatlan -d -p 3000:3000 opossalite/nanacatlan:latest
 
