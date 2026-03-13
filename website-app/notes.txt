@@ -8,3 +8,6 @@ sudo docker pull opossalite/nanacatlan:latest
 sudo docker down
 sudo docker up -d
 
+# compose instead:
+sudo docker compose up -d
+
