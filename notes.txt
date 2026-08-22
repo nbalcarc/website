@@ -14,11 +14,3 @@ sudo docker pull opossalite/nanacatlan:latest
 sudo docker compose down
 sudo docker compose up -d
 
-
-
-# new, build on system and then send to server
-sudo docker build -t my-website .
-sudo docker save my-website | ssh user@your-server 'sudo docker load'
-
-# on server
-sudo docker compose up -d

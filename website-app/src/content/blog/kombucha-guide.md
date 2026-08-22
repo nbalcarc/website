@@ -6,7 +6,7 @@ published: 2026-08-21
 
 ## Introduction
 
-I am deeply unsatisfied with many guides on making kombucha on the internet today. Either they spread misinformation based on folk methods, or overcomplicate the process This guide is intended to demonstrate that making your own kombucha, and understanding the basic mechanism behind it, is dead simple.
+I am deeply unsatisfied with many guides on making kombucha on the internet today. Either they spread misinformation based on folk methods, or overcomplicate the process. This guide is intended to demonstrate that making your own kombucha, and understanding the basic mechanism behind it, is dead simple.
 
 ## SCOBY vs Pellicle
 
